@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Collei"
+		]
+	},
+	"discussions": "Discussions",
+	"discussions-desc": "A Discussions extension for MediaWiki, based on Fandom's Discussions feature."
+}

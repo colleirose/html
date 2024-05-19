@@ -1,0 +1,50 @@
+{
+	"name": "Discussions",
+	"version": "1.0.0",
+	"author": [
+		"Collei"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Discussions",
+	"descriptionmsg": "discussions-desc",
+	"license-name": "GPL-3.0-or-later",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.35.3"
+	},
+	"GroupPermissions": {
+		"discussionsmoderator": {
+			"discussions-moderator": true
+		},
+		"sysop": {
+			"discussions-moderator": true
+		}
+	},
+	"AddGroups": {
+		"sysop": [
+			"discussions-moderator"
+		]
+	},
+	"RemoveGroups": {
+		"sysop": [
+			"discussions-moderator"
+		]
+	},
+	"AvailableRights": [
+		"discussions-moderator"
+	],
+	"SpecialPages": {
+		"discussions": "SpecialDiscussions"
+	},
+	"MessagesDirs": {
+		"discussions": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"SpecialDiscussions": "source/specialpages/SpecialDiscussions.php"
+	},
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Discussions\\Hooks::onLoadExtensionSchemaUpdates"
+	},
+	"manifest_version": 1
+}

@@ -1,0 +1,43 @@
+{
+	"name": "YouTube",
+	"version": "1.9.4",
+	"author": [
+		"Przemek Piotrowski",
+		"Southparkfan",
+		"Universal Omega"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:YouTube",
+	"descriptionmsg": "youtube-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.35.0"
+	},
+	"AutoloadClasses": {
+		"YouTube": "YouTube.php"
+	},
+	"MessagesDirs": {
+		"YouTube": [
+			"i18n"
+		]
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"YouTube::registerTags"
+		],
+		"BeforePageDisplay": [
+			"YouTube::onBeforePageDisplay"
+		]
+	},
+	"ResourceModules": {
+		"ext.YouTube.app": {
+			"localBasePath": "modules/ext.YouTube.app",
+			"remoteExtPath": "YouTube/modules/ext.YouTube.app",	
+			"packageFiles": [
+				"youtube.js"
+			],
+			"styles": "youtube.css"
+		}
+	},
+	"manifest_version": 2
+}
