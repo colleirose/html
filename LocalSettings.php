@@ -149,6 +149,8 @@ require_once "$IP/extensions/CreateWiki/includes/WikiInitialise.php";
 
 $wgCreateWikiDatabase = "wikidb";
 
+// https://github.com/miraheze/ci-scripts/blob/master/mediawiki/globals/setup-CreateWiki.php
+
 function wfLoadConfiguration() {
 	global $wgCreateWikiGlobalWiki, $wgCreateWikiDatabase,
 		$wgCreateWikiCacheDirectory, $wgConf;
