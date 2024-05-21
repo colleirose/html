@@ -1,6 +1,6 @@
 This is a setup of CreateWiki, ManageWiki, MirahezeMagic, and ImportDump that works out of the box on Linux with Apache. Just install inside /var/www/html.
 
-This works with MariaDB. Use phpMyAdmin (comes preinstalled) to install the database file `database.sql` for the thing to work, you can also install it in shell or whatever if you're a masochist.
+This works with MariaDB. Use phpMyAdmin (comes preinstalled with this preconfigured install) to install the database file `database.sql` for the thing to work, you can also install it in shell or whatever if you're a masochist.
 
 This is kind of hacky and messy code. Most extensions can be deleted, but MirahezeMagic depends on Echo and AbuseFilter. CentralAuth isn't installed because I can't be assed to do it right now, it took half a day to get this working and adding CentralAuth would just make things harder.
 
