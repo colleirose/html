@@ -149,56 +149,47 @@ require_once "$IP/extensions/CreateWiki/includes/WikiInitialise.php";
 
 $wgCreateWikiDatabase = "wikidb";
 
-// https://github.com/miraheze/ci-scripts/blob/master/mediawiki/globals/setup-CreateWiki.php
+/// start https://github.com/miraheze/ci-scripts/blob/master/mediawiki/globals/setup-CreateWiki.php ///
 
-function wfLoadConfiguration() {
-	global $wgCreateWikiGlobalWiki, $wgCreateWikiDatabase,
-		$wgCreateWikiCacheDirectory, $wgConf;
+global $wgCreateWikiGlobalWiki, $wgCreateWikiDatabase,
+	$wgCreateWikiCacheDirectory, $wgConf;
 
-	$wgCreateWikiGlobalWiki = 'wikidb';
-	$wgCreateWikiDatabase = 'wikidb';
-	$wgCreateWikiCacheDirectory = MW_INSTALL_PATH . '/cache';
+$wgCreateWikiGlobalWiki = 'wikidb';
+$wgCreateWikiDatabase = 'wikidb';
+$wgCreateWikiCacheDirectory = MW_INSTALL_PATH . '/cache';
 
-	$wi = new WikiInitialise();
+$wi = new WikiInitialise();
 
-	$wi->setVariables(
-		MW_INSTALL_PATH . '/cache',
-		[
-			''
-		],
-		[
-			'127.0.0.1' => ''
-		]
-	);
+$wi->setVariables(
+	MW_INSTALL_PATH . '/cache',
+	[
+		''
+	],
+	[
+		'127.0.0.1' => ''
+	]
+);
 
-	$wi->config->settings += [
-		'cwClosed' => [
-			'default' => false,
-		],
-		'cwInactive' => [
-			'default' => false,
-		],
-		'cwPrivate' => [
-			'default' => false,
-		],
-		'cwExperimental' => [
-			'default' => false,
-		],
-	];
+$wi->config->settings += [
+	'cwClosed' => [
+		'default' => false,
+	],
+	'cwInactive' => [
+		'default' => false,
+	],
+	'cwPrivate' => [
+		'default' => false,
+	],
+	'cwExperimental' => [
+		'default' => false,
+	],
+];
 
-	$wi->readCache();
-	$wi->config->extractAllGlobals( $wi->dbname );
-	$wgConf = $wi->config;
-}
+$wi->readCache();
+$wi->config->extractAllGlobals( $wi->dbname );
+$wgConf = $wi->config;
 
-wfLoadConfiguration();
-
-function wfInitDBConnection() {
-	return MediaWikiServices::getInstance()->getDatabaseFactory()->create( 'mysql', [
-		'host' => $GLOBALS['wgDBserver'],
-		'user' => 'root',
-	] );
-}
+/// end https://github.com/miraheze/ci-scripts/blob/master/mediawiki/globals/setup-CreateWiki.php ///
 
 wfLoadExtension( 'ImportDump' );
 wfLoadExtension( 'CreateWiki' );
@@ -210,8 +201,5 @@ $wgDebugLogFile = "/var/www/html/mw-log/debug-{$wgDBname}.log";
 $wgDebugToolbar = true;
 
 $wgShowExceptionDetails = true; 
-
-use MediaWiki\MediaWikiServices;
-use Wikimedia\Rdbms\DBQueryError;
 
 $wgWikimediaJenkinsCI = true;
